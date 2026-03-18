@@ -14,7 +14,7 @@ import com.emvtempo.hcecard.EMVResponder.wrapTLV
  * Host Card Emulation service that simulates an EMV contactless card.
  *
  * Handles the four APDU commands in a standard EMV contactless transaction:
- *   1. SELECT (AID A0000009510001)
+ *   1. SELECT (AID A000006690820001)
  *   2. GET PROCESSING OPTIONS
  *   3. READ RECORD
  *   4. GENERATE AC
@@ -28,10 +28,10 @@ class HCEService : HostApduService() {
         private const val TAG = "HCEService"
 
         /** EMV-Tempo PoC AID */
-        private const val AID_HEX = "A0000009510001"
+        private const val AID_HEX = "A000006690820001"
 
         /** Hardcoded PAN for PoC */
-        private const val PAN_HEX = "9510010000000001"
+        private const val PAN_HEX = "6690820000000001"
 
         /** Expiry date: YYMMDD BCD */
         private const val EXPIRY_HEX = "261231"

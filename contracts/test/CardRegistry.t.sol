@@ -6,7 +6,7 @@ import "../src/CardRegistry.sol";
 
 contract CardRegistryTest is Test {
     CardRegistry public registry;
-    bytes8 constant TEST_PAN = bytes8(hex"9510010000000001");
+    bytes8 constant TEST_PAN = bytes8(hex"6690820000000001");
     bytes32 constant TEST_X = bytes32(uint256(0x1234));
     bytes32 constant TEST_Y = bytes32(uint256(0x5678));
     address constant CARDHOLDER = address(0xBEEF);

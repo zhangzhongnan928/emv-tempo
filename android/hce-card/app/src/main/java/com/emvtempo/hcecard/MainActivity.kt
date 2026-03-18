@@ -20,7 +20,7 @@ import kotlinx.coroutines.launch
 class MainActivity : AppCompatActivity() {
 
     companion object {
-        private const val PAN_HEX = "9510010000000001"
+        private const val PAN_HEX = "6690820000000001"
     }
 
     private lateinit var tvPan: TextView

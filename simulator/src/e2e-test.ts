@@ -33,7 +33,7 @@ import { privateKeyToAccount } from "viem/accounts";
 const TEMPO_RPC = "https://rpc.moderato.tempo.xyz";
 const CHAIN_ID = 42431;
 
-const TEST_PAN = "9510010000000001"; // 16 hex digits (8 bytes)
+const TEST_PAN = "6690820000000001"; // 16 hex digits (8 bytes)
 const TERMINAL_ID = "5445524D30303100"; // "TERM001\0" as hex
 const AMOUNT_CENTS = 1000; // $10.00
 

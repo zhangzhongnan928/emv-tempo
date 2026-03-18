@@ -38,7 +38,7 @@ export class TerminalSimulator {
    */
   runTransaction(card: CardSimulator): EMVResult {
     // 1. SELECT by AID
-    console.log("  [Terminal] SELECT AID A0000009510001");
+    console.log("  [Terminal] SELECT AID A000006690820001");
     const selectApdu = this.buildSelectApdu(AID);
     const selectResp = card.processAPDU(selectApdu);
     this.checkSW(selectResp, "SELECT");

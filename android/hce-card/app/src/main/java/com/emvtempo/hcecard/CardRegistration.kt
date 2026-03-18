@@ -41,7 +41,7 @@ object CardRegistration {
      * @param rpcUrl           Tempo testnet JSON-RPC URL
      * @param contractAddress  CardRegistry contract address
      * @param privateKeyHex    Wallet private key (hex, no 0x prefix) used to sign the tx
-     * @param panHex           8-byte PAN as hex (e.g., "9510010000000001")
+     * @param panHex           8-byte PAN as hex (e.g., "6690820000000001")
      * @param pubKeyX          32-byte X coordinate of the card's P-256 public key
      * @param pubKeyY          32-byte Y coordinate of the card's P-256 public key
      * @param cardholderAddress Tempo address that holds AUDS tokens

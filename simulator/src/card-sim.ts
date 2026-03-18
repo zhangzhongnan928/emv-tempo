@@ -18,11 +18,11 @@ const SW_OK = new Uint8Array([0x90, 0x00]);
 const SW_WRONG_LENGTH = new Uint8Array([0x67, 0x00]);
 const SW_UNKNOWN = new Uint8Array([0x6d, 0x00]);
 
-export const AID = hexToBytes("A0000009510001");
+export const AID = hexToBytes("A000006690820001");
 
 export interface CardConfig {
   keyPair: P256KeyPair;
-  pan: string; // 16-digit PAN as hex string (e.g., "9510010000000001")
+  pan: string; // 16-digit PAN as hex string (e.g., "6690820000000001")
   expiryDate: string; // YYMMDD BCD (e.g., "261231")
   issuerCountryCode: string; // 2-byte hex (e.g., "0036")
 }

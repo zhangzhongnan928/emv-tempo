@@ -43,7 +43,7 @@ object ReceiptPrinter {
      * @param amountCents   Amount in cents (e.g. 1000 = $10.00)
      * @param txHash        Transaction hash on Tempo
      * @param blockNumber   Block number the tx was confirmed in
-     * @param pan           Card PAN hex (e.g. "9510010000000001")
+     * @param pan           Card PAN hex (e.g. "6690820000000001")
      * @param terminalId    Terminal ID (e.g. "TERM001")
      * @param explorerUrl   Full explorer URL for the transaction
      */

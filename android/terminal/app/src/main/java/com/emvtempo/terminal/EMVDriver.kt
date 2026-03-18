@@ -19,7 +19,7 @@ object EMVDriver {
     private const val TAG = "EMVDriver"
 
     /** AID for the PoC applet. */
-    private val AID = "A0000009510001".hexToBytes()
+    private val AID = "A000006690820001".hexToBytes()
 
     /** Currency code for AUD (0x0036). */
     private const val CURRENCY_AUD = 0x0036

@@ -36,7 +36,7 @@ Settles EMV contactless card payments on the Tempo blockchain. A cardholder taps
 2. **Terminal enters NFC reader mode**, displaying "Tap Card"
 3. **Cardholder holds phone** (running HCE app) near the terminal's NFC reader
 4. **EMV contactless exchange** happens over NFC in ~170ms (no internet on the phone):
-   - Terminal sends **SELECT** with AID `A0000009510001` → Card returns FCI with PDOL
+   - Terminal sends **SELECT** with AID `A000006690820001` → Card returns FCI with PDOL
    - Terminal sends **GET PROCESSING OPTIONS** with amount/currency/random number → Card returns AIP + AFL
    - Terminal sends **READ RECORD** → Card returns PAN, P-256 public key, CDOL1 format
    - Terminal sends **GENERATE AC** with 29-byte CDOL1 data → Card signs `SHA-256(CDOL1)` with its hardware-backed P-256 key and returns the signature
@@ -220,7 +220,7 @@ adb install -r app/build/outputs/apk/debug/app-debug.apk
 
 Open "AUDS Card" on the phone. The app will:
 - Generate a P-256 keypair in Android Keystore
-- Display the PAN (`9510 0100 0000 0001`) and public key coordinates
+- Display the PAN (`6690 8200 0000 0001`) and public key coordinates
 
 **4d. Register the card on-chain**
 
@@ -235,7 +235,7 @@ adb logcat -s "EMV_CARD_KEY" -d
 
 # Register the card
 cast send <CARD_REGISTRY> "registerCard(bytes8,bytes32,bytes32,address)" \
-  0x9510010000000001 <PUBKEY_X> <PUBKEY_Y> <CARDHOLDER_ADDRESS> \
+  0x6690820000000001 <PUBKEY_X> <PUBKEY_Y> <CARDHOLDER_ADDRESS> \
   --rpc-url https://rpc.moderato.tempo.xyz --private-key <KEY>
 ```
 
@@ -341,7 +341,7 @@ docs/
 ```
 Terminal                              Card (Phone)
    │                                     │
-   │──── SELECT (AID A0000009510001) ───►│
+   │──── SELECT (AID A000006690820001) ───►│
    │◄─── FCI: AID + PDOL definition ────│
    │                                     │
    │──── GPO (amount, currency, UN) ────►│
@@ -394,7 +394,7 @@ The card signs `SHA-256(these 29 bytes)` with its P-256 private key.
 
 - **Terminal ID not signed**: The `terminalId` parameter is not in the CDOL1 data, so it's not covered by the card's signature. A malicious relay could redirect funds. Production would use caller whitelists or extended CDOL1.
 - **Permissionless registration**: Anyone can register cards and merchants. Production would restrict to authorized issuers.
-- **Single PAN hardcoded**: The HCE app uses PAN `9510010000000001`. Production would support multiple cards.
+- **Single PAN hardcoded**: The HCE app uses PAN `6690820000000001`. Production would support multiple cards.
 - **No RIP-7212**: Tempo testnet doesn't have the P-256 precompile, so we use the Daimo Solidity fallback (~330k gas vs ~3.4k). This makes settlement more expensive but functionally identical.
 - **Deployer = cardholder = merchant**: For the PoC, the same address plays all roles.
 

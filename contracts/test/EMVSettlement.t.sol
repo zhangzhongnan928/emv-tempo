@@ -54,7 +54,7 @@ contract EMVSettlementTest is Test {
     MerchantRegistry public merchantRegistry;
     MockAUDS public auds;
 
-    bytes8 constant TEST_PAN = bytes8(hex"9510010000000001");
+    bytes8 constant TEST_PAN = bytes8(hex"6690820000000001");
     bytes8 constant TERMINAL_ID = bytes8(hex"5445524D30303100"); // "TERM001\0"
     address constant CARDHOLDER = address(0xBEEF);
     address constant MERCHANT = address(0xCAFE);
