@@ -1,0 +1,16 @@
+{
+  "name": "emv-tempo-simulator",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "e2e": "tsx src/e2e-test.ts",
+    "build": "tsc"
+  },
+  "dependencies": {
+    "@noble/curves": "^2.0.1",
+    "@noble/hashes": "^2.0.1",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3",
+    "viem": "^2.47.4"
+  }
+}

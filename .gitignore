@@ -1,0 +1,26 @@
+# Foundry
+contracts/out/
+contracts/cache/
+
+# Node
+node_modules/
+simulator/dist/
+
+# Android
+android/**/build/
+android/**/.gradle/
+android/**/local.properties
+android/**/*.iml
+android/**/.idea/
+
+# Environment
+.env
+.env.local
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
