@@ -200,7 +200,7 @@ class TempoSubmitter(private val context: Context) {
      * Get the explorer URL for a transaction hash.
      */
     fun getExplorerUrl(txHash: String): String {
-        return "https://explore.tempo.xyz/tx/$txHash"
+        return "https://explore.testnet.tempo.xyz/tx/$txHash"
     }
 
     /** Pad a byte array to exactly 32 bytes (right-padded with zeros). */

@@ -267,7 +267,7 @@ adb install -r app/build/outputs/apk/debug/app-debug.apk
    - "Reading Card..." → EMV APDU exchange happening
    - "Card read complete. Submitting to chain..." → NFC done, submitting tx
    - **"Payment Settled"** → success with tx hash and explorer link
-7. Tap the explorer link to view the transaction on https://explore.tempo.xyz
+7. Tap the explorer link to view the transaction on https://explore.testnet.tempo.xyz
 
 ### Troubleshooting
 
@@ -413,7 +413,7 @@ IIN       Card seq   Luhn check digit (not enforced in PoC)
 | Network Name | Tempo Testnet (Moderato) |
 | Chain ID | 42431 |
 | RPC | https://rpc.moderato.tempo.xyz |
-| Explorer | https://explore.tempo.xyz |
+| Explorer | https://explore.testnet.tempo.xyz |
 | Faucet | https://faucet.tempo.xyz |
 | Block Time | ~0.5 seconds |
 | Finality | Deterministic (Simplex BFT) |
@@ -431,4 +431,4 @@ IIN       Card seq   Luhn check digit (not enforced in PoC)
 
 | Amount | TX Hash | Block |
 |--------|---------|-------|
-| $10.00 AUD | [`0xd8929f...fdaca`](https://explore.tempo.xyz/tx/0xd8929f21e2eb58529f65d35d3194994c2a04598d0fac229899b76d35644fdaca) | 8843583 |
+| $10.00 AUD | [`0xd8929f...fdaca`](https://explore.testnet.tempo.xyz/tx/0xd8929f21e2eb58529f65d35d3194994c2a04598d0fac229899b76d35644fdaca) | 8843583 |
