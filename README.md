@@ -377,6 +377,35 @@ Terminal                              Card (Phone)
 
 The card signs `SHA-256(these 29 bytes)` with its P-256 private key.
 
+## IIN / BIN and AID
+
+| Field | Value |
+|-------|-------|
+| IIN/BIN | `66908200` (OpenPasskey Pty Ltd) |
+| Issuer | CUSIP Global Services via Pay.UK sponsorship |
+| Effective | July 1, 2026 |
+| PAN | `6690 8200 0000 0001` (first test card) |
+| AID | `A000006690820001` |
+
+### AID Derivation
+
+```
+A0 00006690820001
+│  │            │
+│  │            └─ PIX (application identifier, first app)
+│  └─────────────── IIN 66908200 zero-padded to 5 bytes
+└──────────────────── Proprietary RID namespace prefix
+```
+
+### PAN Structure
+
+```
+6690 8200 XXXX XXXX C
+│         │          │
+IIN       Card seq   Luhn check digit (not enforced in PoC)
+(8 dig)   (up to 11)
+```
+
 ## Tempo Testnet
 
 | Property | Value |
