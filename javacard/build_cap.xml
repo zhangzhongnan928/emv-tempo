@@ -1,0 +1,15 @@
+<project name="EMVTempoCard" default="build" basedir=".">
+    <taskdef name="javacard" classname="pro.javacard.ant.JavaCard" classpath="lib/ant-javacard.jar"/>
+    <target name="build">
+        <javacard jckit="/tmp/oracle_javacard_sdks/jc304_kit">
+            <cap output="build/emvtempo-card.cap"
+                 aid="A00000669082"
+                 package="com.emvtempo.card"
+                 version="1.0">
+                <applet class="com.emvtempo.card.EMVTempoApplet"
+                        aid="A000006690820001"/>
+                <sources path="src"/>
+            </cap>
+        </javacard>
+    </target>
+</project>
