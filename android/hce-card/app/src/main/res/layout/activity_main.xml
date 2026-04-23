@@ -1,200 +1,144 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="24dp">
+    android:background="@color/page_bg">
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <!-- Settings gear (top right) -->
+    <ImageButton
+        android:id="@+id/btnSettings"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:src="@android:drawable/ic_menu_manage"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="Settings"
+        android:scaleType="centerInside"
+        android:padding="10dp"
+        app:tint="#8E8E93"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Payment Card — real credit card ratio (85.6:53.98 ≈ 1.586) -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginEnd="28dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintDimensionRatio="H,1.586:1"
+        app:layout_constraintWidth_default="spread"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnSettings"
+        app:cardBackgroundColor="@color/card_bg"
+        app:cardCornerRadius="18dp"
+        app:cardElevation="16dp"
+        app:strokeColor="@color/card_border"
+        app:strokeWidth="0.5dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="24dp">
+
+            <!-- OPK Brand (top left) -->
+            <TextView
+                android:id="@+id/tvBrand"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="OPK"
+                android:textColor="@color/card_brand"
+                android:textSize="26sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.15"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentStart="true" />
+
+            <!-- Contactless symbol (top right) -->
+            <TextView
+                android:id="@+id/tvContactless"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="))))"
+                android:textColor="@color/card_text_secondary"
+                android:textSize="16sp"
+                android:rotation="90"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="4dp" />
+
+            <!-- Full PAN (vertically centered) -->
+            <TextView
+                android:id="@+id/tvPan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/card_text_primary"
+                android:textSize="18sp"
+                android:fontFamily="monospace"
+                android:letterSpacing="0.08"
+                android:maxLines="1"
+                android:layout_centerInParent="true" />
+
+            <!-- Card type label (bottom left) -->
+            <TextView
+                android:id="@+id/tvCardLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="EMV CONTACTLESS"
+                android:textColor="@color/card_text_secondary"
+                android:textSize="10sp"
+                android:letterSpacing="0.2"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentStart="true" />
+
+            <!-- P-256 badge (bottom right) -->
+            <TextView
+                android:id="@+id/tvKeyBadge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="P-256"
+                android:textColor="@color/card_text_secondary"
+                android:textSize="10sp"
+                android:letterSpacing="0.1"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true" />
+
+        </RelativeLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- Hold Near Reader prompt -->
+    <TextView
+        android:id="@+id/tvNfcPrompt"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center_horizontal">
+        android:text="Hold Near Reader"
+        android:textColor="@color/nfc_text"
+        android:textSize="17sp"
+        app:layout_constraintTop_toBottomOf="@id/card"
+        app:layout_constraintBottom_toTopOf="@id/tvStatus"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_constraintVertical_bias="0.35" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="EMV-Tempo Card"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            android:layout_marginBottom="24dp" />
+    <!-- Status text -->
+    <TextView
+        android:id="@+id/tvStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/status_ready"
+        android:textSize="13sp"
+        android:layout_marginTop="10dp"
+        android:text="Ready"
+        app:layout_constraintTop_toBottomOf="@id/tvNfcPrompt"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintVertical_bias="0" />
 
-        <!-- Card Info Section -->
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            app:cardElevation="4dp"
-            app:cardCornerRadius="8dp"
-            xmlns:app="http://schemas.android.com/apk/res-auto">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="16dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Card Information"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-                    android:layout_marginBottom="8dp" />
-
-                <TextView
-                    android:id="@+id/tvPan"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="14sp"
-                    android:fontFamily="monospace"
-                    android:layout_marginBottom="4dp" />
-
-                <TextView
-                    android:id="@+id/tvPubKeyX"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="11sp"
-                    android:fontFamily="monospace"
-                    android:layout_marginBottom="4dp" />
-
-                <TextView
-                    android:id="@+id/tvPubKeyY"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="11sp"
-                    android:fontFamily="monospace"
-                    android:layout_marginBottom="4dp" />
-
-                <TextView
-                    android:id="@+id/tvKeyStatus"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="14sp" />
-            </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
-
-        <!-- Registration Section -->
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            app:cardElevation="4dp"
-            app:cardCornerRadius="8dp"
-            xmlns:app="http://schemas.android.com/apk/res-auto">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="16dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="On-Chain Registration"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-                    android:layout_marginBottom="8dp" />
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="8dp"
-                    android:hint="RPC URL">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/etRpcUrl"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="http://127.0.0.1:8545"
-                        android:inputType="textUri"
-                        android:textSize="13sp"
-                        android:fontFamily="monospace" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="8dp"
-                    android:hint="CardRegistry Contract Address">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/etContractAddress"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="text"
-                        android:textSize="13sp"
-                        android:fontFamily="monospace" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="8dp"
-                    android:hint="Wallet Private Key (hex)">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/etPrivateKey"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="textPassword"
-                        android:textSize="13sp"
-                        android:fontFamily="monospace" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="12dp"
-                    android:hint="Cardholder Address (0x...)">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/etCardholderAddress"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="text"
-                        android:textSize="13sp"
-                        android:fontFamily="monospace" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnRegister"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Register Card On-Chain" />
-            </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
-
-        <!-- Status Section -->
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:cardElevation="4dp"
-            app:cardCornerRadius="8dp"
-            xmlns:app="http://schemas.android.com/apk/res-auto">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="16dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Status"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-                    android:layout_marginBottom="8dp" />
-
-                <TextView
-                    android:id="@+id/tvStatus"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="13sp"
-                    android:fontFamily="monospace"
-                    android:text="Ready. Tap phone on terminal to pay." />
-            </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
-    </LinearLayout>
-</ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

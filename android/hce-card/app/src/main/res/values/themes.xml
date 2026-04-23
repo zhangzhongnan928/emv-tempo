@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.HCECard" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="android:statusBarColor">@color/page_bg</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:navigationBarColor">@color/page_bg</item>
+        <item name="android:windowBackground">@color/page_bg</item>
+    </style>
+
+    <style name="Theme.HCECard.Settings" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <item name="colorPrimary">#1A1A1A</item>
+    </style>
+</resources>
